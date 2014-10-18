@@ -1,4 +1,8 @@
-Dumpling-Bucket
-===============
+Dumpling Bucket
+=
 
-A game.
+Such wow
+
+Authors
+-
+* Daniel Bezden 
