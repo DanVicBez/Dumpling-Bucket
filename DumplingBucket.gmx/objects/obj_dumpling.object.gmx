@@ -37,16 +37,18 @@ var bHalfWidth = obj_bucket.sprite_width / 2,
     halfHeight = sprite_height / 2;
 
 //If the dumpling collides with the front edge of the bucket
-if x - halfWidth &lt; bX + bHalfWidth
+/*if x - halfWidth &lt; bX + bHalfWidth
 &amp;&amp; x + halfWidth &gt; bX + bHalfWidth
 &amp;&amp; y &gt; bY - bHalfHeight
-&amp;&amp; y &lt; bY + bHalfHeight {
+&amp;&amp; y &lt; bY + bHalfHeight*/
+if collision_line(bX + bHalfWidth, bY - bHalfHeight, bX + bHalfWidth, bY + bHalfHeight, obj_dumpling, false, false) {
     score++;
     
     randomize();
     x = scr_last_dumpling() + irandom_range(75, 150);
     y = irandom_range(sprite_height, room_height - sprite_height);
 } else if x &lt; 0 {
+    show_message('Game over!');
     room_restart();    
 }
 
