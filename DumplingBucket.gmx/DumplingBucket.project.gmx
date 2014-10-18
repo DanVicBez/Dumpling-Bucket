@@ -11,9 +11,16 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_last_dumpling.gml</script>
+  </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_arial_24</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_bucket</object>
     <object>objects\obj_dumpling</object>
+    <object>objects\obj_control</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_game</room>
