@@ -27,28 +27,25 @@
             <kind>1</kind>
             <string>///Update loop
 
-x -= 3;
+x -= global.dumpling_speed;
 
 var bHalfWidth = obj_bucket.sprite_width / 2,
     bHalfHeight = obj_bucket.sprite_height / 2,
     bX = obj_bucket.x,
-    bY = obj_bucket.y,
-    halfWidth = sprite_width / 2,
-    halfHeight = sprite_height / 2;
+    bY = obj_bucket.y;
 
 //If the dumpling collides with the front edge of the bucket
-/*if x - halfWidth &lt; bX + bHalfWidth
-&amp;&amp; x + halfWidth &gt; bX + bHalfWidth
-&amp;&amp; y &gt; bY - bHalfHeight
-&amp;&amp; y &lt; bY + bHalfHeight*/
-if collision_line(bX + bHalfWidth, bY - bHalfHeight, bX + bHalfWidth, bY + bHalfHeight, obj_dumpling, false, false) {
+if x                    &lt;= bX + bHalfWidth
+&amp;&amp; x + sprite_width / 2 &gt;= bX + bHalfWidth
+&amp;&amp; y                    &gt;= bY - bHalfHeight
+&amp;&amp; y                    &lt;= bY + bHalfHeight {
     score++;
     
     randomize();
-    x = scr_last_dumpling() + irandom_range(75, 150);
-    y = irandom_range(sprite_height, room_height - sprite_height);
+    x = scr_last_dumpling() + global.dumpling_spacing;
+    y = irandom_range(sprite_height * 2, room_height - sprite_height * 2);
 } else if x &lt; 0 {
-    show_message('Game over!');
+    show_message('Game Over!');
     room_restart();    
 }
 

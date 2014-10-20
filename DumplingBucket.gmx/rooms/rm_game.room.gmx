@@ -11,11 +11,20 @@
   <colour>16744448</colour>
   <showcolour>-1</showcolour>
   <code>score = 0;
-var amount = 10;
+
+globalvar dumplings;
+globalvar dumpling_spacing; global.dumpling_spacing = 125;
+globalvar dumpling_speed; global.dumpling_speed = 5;
+
+var amount = 15;
+var border = sprite_get_height(spr_dumpling) * 2;
 
 randomize();
 for(var i = 0; i &lt; amount; i++) {
-    instance_create(room_width + 100 + i * random_range(75, 200), (room_height * (i + 1)) / (amount + 1), obj_dumpling);
+    global.dumplings[i] = instance_create(
+        room_width + 100 + i * global.dumpling_spacing,
+        irandom_range(border, room_height - border),
+        obj_dumpling);
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

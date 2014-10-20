@@ -1,7 +1,7 @@
 var last = 0;
 
-for(var i = 0; i < instance_number(obj_dumpling); i++) {
-    last = max(last, instance_find(obj_dumpling, i).x);
+for(var i = 0; i < array_length_1d(global.dumplings); i++) {
+    last = max(last, global.dumplings[i].x);
 }
 
 return last;
