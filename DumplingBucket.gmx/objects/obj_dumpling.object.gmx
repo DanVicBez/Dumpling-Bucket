@@ -37,10 +37,10 @@ var bHalfWidth = obj_bucket.sprite_width / 2,
     bY = obj_bucket.y;
 
 //If the dumpling collides with the front edge of the bucket
-if x                    &lt;= bX + bHalfWidth
-&amp;&amp; x + sprite_width / 2 &gt;= bX + bHalfWidth
-&amp;&amp; y                    &gt;= bY - bHalfHeight
-&amp;&amp; y                    &lt;= bY + bHalfHeight {
+if x                     &lt;= bX + bHalfWidth
+&amp;&amp; x + sprite_width / 2  &gt;= bX + bHalfWidth
+&amp;&amp; y - sprite_height / 2 &gt;= bY - bHalfHeight
+&amp;&amp; y + sprite_height / 2 &lt;= bY + bHalfHeight {
     score++;
     
     randomize();
