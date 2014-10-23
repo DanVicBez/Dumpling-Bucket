@@ -21,6 +21,7 @@
     <object>objects\obj_bucket</object>
     <object>objects\obj_dumpling</object>
     <object>objects\obj_control</object>
+    <object>objects\obj_game_over</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_game</room>

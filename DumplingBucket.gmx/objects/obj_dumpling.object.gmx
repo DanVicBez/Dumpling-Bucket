@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>///Update loop
 
+with (obj_game_over) if (instance_count &gt; 0) exit;
+
 x -= global.dumpling_speed;
 
 var bHalfWidth = obj_bucket.sprite_width / 2,
@@ -45,8 +47,7 @@ if x                    &lt;= bX + bHalfWidth
     x = scr_last_dumpling() + global.dumpling_spacing;
     y = irandom_range(sprite_height * 2, room_height - sprite_height * 2);
 } else if x &lt; 0 {
-    show_message('Game Over!');
-    room_restart();    
+    instance_create(0, 0, obj_game_over);
 }
 
 </string>
