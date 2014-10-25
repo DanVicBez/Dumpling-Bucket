@@ -16,17 +16,28 @@ globalvar dumplings;
 globalvar dumpling_spacing; global.dumpling_spacing = 200;
 globalvar dumpling_speed; global.dumpling_speed = 8;
 
+window_set_cursor(cr_default);
+
 var amount = 15;
 var border = sprite_get_height(spr_dumpling) * 2;
 
-window_set_cursor(cr_default);
-
+//Create dumplings
 randomize();
 for(var i = 0; i &lt; amount; i++) {
     global.dumplings[i] = instance_create(
         room_width + 100 + i * global.dumpling_spacing,
         irandom_range(border, room_height - border),
         obj_dumpling);
+}
+
+//Highscore
+var file = 'highscore.dat';
+if file_exists(file) {
+    var write = file_text_open_read(file);
+    global.highscore = file_text_read_real(write);
+    file_text_close(write);
+} else {
+    global.highscore = 0;
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

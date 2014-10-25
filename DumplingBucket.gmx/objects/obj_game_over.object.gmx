@@ -32,10 +32,23 @@ var height = string_height("Try Again");
 
 text_color = c_black;
 
+ySpacing = height * 1.2;
+try_again_x = room_width / 2;
+try_again_y = room_height / 2 + ySpacing;
+
 try_again_x1 = (room_width - width) / 2;
-try_again_y1 = room_height / 2 + 50;
-try_again_x2 = (room_width + width) / 2;
-try_again_y2 = room_height / 2 + 50 + height;
+try_again_y1 = (room_height - height) / 2 + ySpacing;
+try_again_x2 = try_again_x1 + width;
+try_again_y2 = try_again_y1 + height;
+
+//Save new highscore
+if score &gt; global.highscore {
+    var file = 'highscore.dat';
+    var write = file_text_open_write(file);
+    file_text_write_real(write, score);
+    file_text_close(write);
+    global.highscore = score;
+}
 </string>
           </argument>
         </arguments>
@@ -74,7 +87,7 @@ try_again_y2 = room_height / 2 + 50 + height;
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -93,14 +106,30 @@ try_again_y2 = room_height / 2 + 50 + height;
             <kind>1</kind>
             <string>///Draw text
 
-draw_set_font(fnt_arial_24);
-draw_set_halign(fa_center);
-draw_text(room_width / 2, room_height / 2, "Game Over!");
+//Rectangle
+draw_set_colour(c_white);
+draw_set_alpha(0.5);
 
-draw_set_halign(fa_left);
+var width = 220;
+var height = 140;
+draw_rectangle((room_width - width) / 2, (room_height - height) / 2,
+               (room_width + width) / 2, (room_height + height) / 2,
+               false);
+draw_set_alpha(1);
+
+//Text
+draw_set_font(fnt_arial_24);
+draw_set_color(c_black);
+
+draw_set_halign(fa_center);
+draw_set_valign(fa_center);
+
+draw_text(room_width / 2, room_height / 2 - ySpacing, "Game Over!");
+
+draw_text(room_width / 2, room_height / 2, "Highscore: " + string(global.highscore));
 
 draw_set_colour(text_color);
-draw_text(try_again_x1, try_again_y1, "Try Again");
+draw_text(try_again_x, try_again_y, "Try Again");
 draw_set_colour(c_black);
 </string>
           </argument>
