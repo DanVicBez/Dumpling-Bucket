@@ -13,11 +13,13 @@
   <code>score = 0;
 
 globalvar dumplings;
-globalvar dumpling_spacing; global.dumpling_spacing = 125;
-globalvar dumpling_speed; global.dumpling_speed = 5;
+globalvar dumpling_spacing; global.dumpling_spacing = 200;
+globalvar dumpling_speed; global.dumpling_speed = 8;
 
 var amount = 15;
 var border = sprite_get_height(spr_dumpling) * 2;
+
+window_set_cursor(cr_default);
 
 randomize();
 for(var i = 0; i &lt; amount; i++) {

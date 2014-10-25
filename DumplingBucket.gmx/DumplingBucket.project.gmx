@@ -26,6 +26,10 @@
   <rooms name="rooms">
     <room>rooms\rm_game</room>
   </rooms>
+  <constants number="2">
+    <constant name="GM_build_date">41937.1359141319</constant>
+    <constant name="GM_version">'1.0.0.0'</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
